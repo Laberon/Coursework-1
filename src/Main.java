@@ -23,6 +23,8 @@ public class Main {
         salaryAverage(employees);
         printSeparator();
         fCSPrint(employees);
+        printSeparator();
+        salaryIndexing(employees);
     }
 
     public static void allPrint(Employee[] employees) {
@@ -78,6 +80,17 @@ public class Main {
             System.out.println(employees[i].getFcs());
         }
         return null;
+    }
+
+    public static void salaryIndexing(Employee[] employees) {
+        double percent = 9;
+        double arr = percent / 100;
+        double indexingOfSalary = 0;
+        for (int i = 0; i < employees.length; i++) {
+            indexingOfSalary = (employees[i].getSalary() * arr) + employees[i].getSalary();
+            System.out.println("Процент индексации- " + percent + "%. Сумма после индексации- " + indexingOfSalary);
+        }
+
     }
 
 //    final var result = Arrays.stream(employees).collect(Collectors.summarizingInt(Employee::getSalary));
