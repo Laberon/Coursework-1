@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,7 +14,6 @@ public class Main {
         employees[7] = new Employee(3, "ГАВРИКОВ Макарий Денисович", 30000);
         employees[8] = new Employee(2, "РАГИМОВ Назарий Евлампиевич", 40000);
         employees[9] = new Employee(1, "ШАМСУТДИНОВ Петр Ефремович ", 50000);
-//        System.out.println(employees[0].getId() + " " + employees[0]);
         printSeparator();
         allPrint(employees);
         printSeparator();
@@ -30,12 +31,12 @@ public class Main {
     public static void allPrint(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
-//            System.out.println(employees[i].getId()+" "+employees[i]); //с ID
         }
     }
 
     public static void printSeparator() {
-        System.out.println("------------");
+        System.out.println("--------------------------------");
+        System.out.println();
     }
 
     public static int salarySum(Employee[] employees) {
@@ -58,7 +59,7 @@ public class Main {
                 max = employees[i].getSalary();
             }
         }
-//        }
+// }
         System.out.println("Минимальная зарплата= " + min);
         System.out.println("Максимальная зарплата= " + max);
         return min;
@@ -83,21 +84,12 @@ public class Main {
     }
 
     public static void salaryIndexing(Employee[] employees) {
-        double percent = 9;
+        double percent = 8;
         double arr = percent / 100;
         double indexingOfSalary = 0;
         for (int i = 0; i < employees.length; i++) {
-            indexingOfSalary = (employees[i].getSalary() * arr) + employees[i].getSalary();
-            System.out.println("Процент индексации- " + percent + "%. Сумма после индексации- " + indexingOfSalary);
+            indexingOfSalary = arr * employees[i].getSalary() + employees[i].getSalary();
+            System.out.println("Процент индексации- " + percent + "%. Сумма зарплаты с индексацией- " + indexingOfSalary);
         }
-
     }
-
-//    final var result = Arrays.stream(employees).collect(Collectors.summarizingInt(Employee::getSalary));
-//        System.out.println("Сумма затрат на месяц= "+result.getSum());
-//        System.out.println("Минимальная зарплата= "+result.getMin());
-//        System.out.println("Максимальная зарпалат= "+result.getMax());
-//        System.out.println("Среднее значение= "+result.getAverage());
 }
-
-

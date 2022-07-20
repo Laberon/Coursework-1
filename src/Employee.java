@@ -1,73 +1,54 @@
 import java.util.Objects;
 
 public class Employee {
-    private int Department; //отдел
-    private String Fcs; //фио
-    public int Salary; //зп
-    public static int id;//идентификатор
-    private int size;
+    private int department; //отдел
+    private String fCS; //фио
+    public int salary; //зп
+    public int id;//идентификатор
+    private static int size=1; //лучше отдел пускай начинается с 1-го
     public int expenses;
 
-    private static int getMax(int[] Salary)
-    {
-        int max = Integer.MIN_VALUE;
-        for (int i: Salary) {
-            max = Math.max(max, i);
-        }
-
-        return max;
+    public Employee(int department, String fCS, int salary) {
+        this.department = department;
+        this.fCS = fCS;
+        this.salary = salary;
+        id=size++;
     }
-    public Employee(int Department, String Fcs, int Salary) {
-        this.Department = Department;
-        this.Fcs = Fcs;
-        this.Salary = Salary;
-    }
-
-
     public int getId() {
-        return id = ++id;
+        return id;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Salary == employee.Salary && Department == employee.Department && Fcs.equals(employee.Fcs);
+        return salary == employee.salary && department == employee.department && fCS.equals(employee.fCS);
     }
-
     @Override
     public int hashCode() {
-        int result = Objects.hash(Fcs, Salary, Department);
+        int result = Objects.hash(fCS, salary, department);
         return result;
     }
-
     public int getDepartment() {
-        return Department;
+        return department;
     }
-
     public void setDepartment(int department) {
-        Department = department;
+        department = department;
     }
-
     public String getFcs() {
-        return Fcs;
+        return fCS;
     }
-
     public int getSalary() {
-        return Salary;
+        return salary;
     }
-
     @Override
     public String toString() {
         return "Employee. " +
-                "Отдел \'" + Department + '\'' +
-                ", ФИО \'" + Fcs + '\'' +
-                ", Зарплата \'" + Salary +
+                "Отдел \'" + department + '\'' +
+                ", ФИО \'" + fCS + '\'' +
+                ", Зарплата \'" + salary +
                 '\'';
     }
-
-
     public int getExpenses() {
         return expenses;
     }
